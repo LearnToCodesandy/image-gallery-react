@@ -24,8 +24,8 @@ export const CurrentProvider = (props) => {
       };
       setCurrentImage(data);
     }
-    // getARandomPhoto();
-    setCurrentImage(imagesData[2]);
+    getARandomPhoto();
+    // setCurrentImage(imagesData[2]);
   }, []);
 
   return (
