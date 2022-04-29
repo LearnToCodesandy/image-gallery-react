@@ -1,5 +1,4 @@
 import React, { useState, useEffect, createContext } from 'react';
-import imagesData from '../data.js';
 import { createClient } from 'pexels';
 
 export const CurrentImage = createContext();
@@ -10,7 +9,7 @@ const client = createClient(
 export const CurrentProvider = (props) => {
   const [currentImage, setCurrentImage] = useState({
     id: 12345,
-    url: 'https://www.pexels.com/photo/woman-in-orange-tank-top-holding-mirror-ball-11182735/',
+    url: 'https://images.pexels.com/photos/11143927/pexels-photo-11143927.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200',
     isFav: false,
   });
 
@@ -19,13 +18,12 @@ export const CurrentProvider = (props) => {
       const res = await client.photos.random();
       const data = {
         id: res.id,
-        url: res.url,
+        url: res.src.landscape,
         isFav: false,
       };
       setCurrentImage(data);
     }
     getARandomPhoto();
-    // setCurrentImage(imagesData[2]);
   }, []);
 
   return (
