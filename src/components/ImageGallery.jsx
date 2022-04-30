@@ -1,5 +1,5 @@
-import React, { Suspense } from "react";
-const ImageCard = React.lazy(() => import("./ImageCard.jsx"));
+import React from "react";
+import ImageCard from "./ImageCard";
 
 const ImageGallery = ({ title, images }) => {
   return (
@@ -7,13 +7,11 @@ const ImageGallery = ({ title, images }) => {
       <h3 className="title">{title}</h3>
       <div id="gallery">
         {images.map((image) => (
-          <Suspense fallback={<div>Loading</div>}>
-            <ImageCard
-              image__url={image.url}
-              image__id={image.id}
-              key={image.id}
-            />
-          </Suspense>
+          <ImageCard
+            image__url={image.url}
+            image__id={image.id}
+            key={image.id}
+          />
         ))}
       </div>
     </div>

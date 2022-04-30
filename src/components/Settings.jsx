@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 
 const Settings = () => {
   const [quote, setQuote] = useState({});
+  const [user, setUser] = useContext(UserContext);
+  const nav = useNavigate();
   useEffect(() => {
-    fetch('https://api.quotable.io/random')
+    fetch("https://api.quotable.io/random")
       .then((response) => response.json())
       .then((data) => {
         const temp = {
           content: data.content,
-          author: data.author,
+          author: data.author
         };
         setQuote(temp);
       });
@@ -32,7 +36,15 @@ const Settings = () => {
           <span className="quote__author">~ Lorem ipsum dolor sit amet.</span>
         )}
       </div>
-      <button className="btn btn-danger log__out">Log Out</button>
+      <button
+        className="btn btn-danger log__out"
+        onClick={() => {
+          setUser({ ...user, loginStatus: false });
+          nav("/", { replace: true });
+        }}
+      >
+        Log Out
+      </button>
     </div>
   );
 };

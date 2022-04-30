@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Wrapper from "./components/Wrapper";
-
+import Login from "./components/Login";
 import "./style.css";
+import { UserContext } from "./context/UserContext";
 
 export default function App() {
-  const userLogin = true;
+  const [user] = useContext(UserContext);
 
-  return <div className="container">{userLogin ? <Wrapper /> : ""}</div>;
+  return (
+    <div className="container">
+      {user.loginStatus ? <Wrapper /> : <Login />}
+    </div>
+  );
 }
