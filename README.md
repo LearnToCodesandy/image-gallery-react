@@ -23,3 +23,11 @@
   - dashboard context
   - favorites context
   - settings context
+
+### Overview of the Project
+
+---
+
+- Unable to deploy because of secret key
+- Inorder to view the functionality a video reference is attached here below
+- [live project link](https://www.loom.com/share/116d86eccaee487b9564b3810c24f04e)
