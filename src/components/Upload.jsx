@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
-import { ImagesContext } from '../context/ImagesContext';
+import React, { useContext, useState } from "react";
+import { ImagesContext } from "../context/ImagesContext";
 
 const Upload = () => {
   // context
   const [images, setImages] = useContext(ImagesContext);
+  const [toggleMess, setToggleMess] = useState(false);
 
   // handlers
   const addImage = (e) => {
@@ -12,10 +13,13 @@ const Upload = () => {
     const data = {
       isFav: false,
       id: Math.floor(Math.random() * 1000000000 + 1),
-      url: fd.get('url'),
+      url: fd.get("url")
     };
-    const latestImages = [data, ...images];
+    const latestImages = [...images, data];
     setImages(latestImages);
+    setToggleMess(true);
+    setTimeout(() => setToggleMess(false), 1500);
+    e.target.reset();
   };
   return (
     <>
@@ -33,6 +37,9 @@ const Upload = () => {
 
         <input type="submit" value="add image" className="btn btn-danger" />
       </form>
+      <p className={toggleMess ? "modalMessage" : "display-hide"}>
+        Image added successfully!
+      </p>
     </>
   );
 };

@@ -20,7 +20,7 @@ const Dashboard = () => {
       const res = await client.photos.random();
       const data = {
         id: res.id,
-        url: res.src.medium,
+        url: res.src.landscape,
         isFav: false
       };
       setCurrentImage(data);
@@ -30,7 +30,7 @@ const Dashboard = () => {
 
   const loadMore = () => {
     async function getImages() {
-      const res = await client.photos.curated({ page: pageCount, per_page: 40 });
+      const res = await client.photos.curated({ page: pageCount, per_page: 7 });
       if (res.next_page) {
         const filteredImgs = res.photos.map((image) => {
           return { id: image.id, url: image.src.original, isFav: false };
@@ -67,7 +67,7 @@ const Dashboard = () => {
       <button className="btn btn-primary-outlined" onClick={loadMore}>
         Load more
       </button>
-      <p className={toggle ? "" : "display-hide"}>
+      <p className={toggle ? "modalMessage" : "display-hide"}>
         Yo! you have reached the end!
       </p>
     </div>

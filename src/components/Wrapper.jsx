@@ -1,6 +1,6 @@
-import React from 'react';
-import ContextContainer from './ContextContainer';
-import Sidebar from './Sidebar';
+import React from "react";
+import ContextContainer from "./ContextContainer";
+import Sidebar from "./Sidebar";
 
 const Wrapper = () => {
   return (

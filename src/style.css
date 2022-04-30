@@ -165,11 +165,11 @@ button:hover,
 #gallery {
   width: 100%;
   line-height: 0;
-  -webkit-column-count: 4;
+  -webkit-column-count: 6;
   -webkit-column-gap: 5px;
-  -moz-column-count: 4;
+  -moz-column-count: 6;
   -moz-column-gap: 5px;
-  column-count: 4;
+  column-count: 6;
   column-gap: 5px;
 }
 
@@ -349,4 +349,16 @@ button:hover,
   background-color: #000;
   box-shadow: 0 0 4px 1px #000;
   color: white;
+}
+
+.modalMessage {
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #004e00;
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
