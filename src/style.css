@@ -5,7 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   outline: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -107,7 +107,7 @@ button:hover,
 }
 
 .logo__text {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   color: black;
   text-decoration: underline;
   text-decoration-style: wavy;
@@ -156,7 +156,7 @@ button:hover,
   padding: 0.5rem 0.25rem;
   margin: 0.5rem;
   font-weight: normal;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 2.5rem;
   text-decoration: underline;
   text-decoration-style: dotted;
@@ -334,4 +334,19 @@ button:hover,
 .btn-danger:hover {
   background-color: #dc143cd0;
   box-shadow: 0 0 4px crimson;
+}
+
+.btn-primary-outlined {
+  background: transparent;
+  border: 2px solid black;
+  color: black;
+  transition: 0.2s ease-in all;
+  cursor: pointer;
+  align-self: center;
+}
+
+.btn-primary-outlined:hover {
+  background-color: #000;
+  box-shadow: 0 0 4px 1px #000;
+  color: white;
 }

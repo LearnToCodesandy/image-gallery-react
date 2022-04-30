@@ -1,5 +1,5 @@
-import React, { Suspense } from 'react';
-const ImageCard = React.lazy(() => import('./ImageCard.jsx'));
+import React, { Suspense } from "react";
+const ImageCard = React.lazy(() => import("./ImageCard.jsx"));
 
 const ImageGallery = ({ title, images }) => {
   return (
@@ -11,7 +11,7 @@ const ImageGallery = ({ title, images }) => {
             <ImageCard
               image__url={image.url}
               image__id={image.id}
-              key={Math.random()}
+              key={image.id}
             />
           </Suspense>
         ))}
