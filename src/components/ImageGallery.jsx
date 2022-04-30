@@ -1,20 +1,19 @@
-import React, { useContext } from 'react';
-import ImageCard from './ImageCard';
-import { ImagesContext } from '../context/ImagesContext.js';
+import React, { Suspense } from 'react';
+const ImageCard = React.lazy(() => import('./ImageCard.jsx'));
 
-const ImageGallery = ({ title }) => {
-  const [images, setImages] = useContext(ImagesContext);
-
+const ImageGallery = ({ title, images }) => {
   return (
     <div className="favorite__image__gallery">
       <h3 className="title">{title}</h3>
       <div id="gallery">
         {images.map((image) => (
-          <ImageCard
-            image__url={image.url}
-            image__id={Math.random()}
-            key={Math.random()}
-          />
+          <Suspense fallback={<div>Loading</div>}>
+            <ImageCard
+              image__url={image.url}
+              image__id={image.id}
+              key={Math.random()}
+            />
+          </Suspense>
         ))}
       </div>
     </div>

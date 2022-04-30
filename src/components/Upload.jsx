@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ImagesContext } from '../context/ImagesContext';
 
 const Upload = () => {
+  // context
+  const [images, setImages] = useContext(ImagesContext);
+
+  // handlers
+  const addImage = (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const data = {
+      isFav: false,
+      id: Math.floor(Math.random() * 1000000000 + 1),
+      url: fd.get('url'),
+    };
+    const latestImages = [data, ...images];
+    setImages(latestImages);
+  };
   return (
     <>
       <h3 className="title">Upload</h3>
-      <form className="upload__form">
+      <form className="upload__form" onSubmit={addImage}>
         <div className="form__item">
           <label htmlFor="url">Image Url</label>
           <input
@@ -15,24 +31,7 @@ const Upload = () => {
           />
         </div>
 
-        <div className="form__item">
-          <label htmlFor="submit__btn">
-            <svg
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              stroke-linejoin="round"
-              stroke-miterlimit="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m12.002 2c5.518 0 9.998 4.48 9.998 9.998 0 5.517-4.48 9.997-9.998 9.997-5.517 0-9.997-4.48-9.997-9.997 0-5.518 4.48-9.998 9.997-9.998zm-.747 9.25h-3.5c-.414 0-.75.336-.75.75s.336.75.75.75h3.5v3.5c0 .414.336.75.75.75s.75-.336.75-.75v-3.5h3.5c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-3.5v-3.5c0-.414-.336-.75-.75-.75s-.75.336-.75.75z"
-                fill-rule="nonzero"
-              />
-            </svg>
-          </label>
-          <input type="submit" value="submit__btn" className="display-hide" />
-        </div>
+        <input type="submit" value="add image" className="btn btn-danger" />
       </form>
     </>
   );
